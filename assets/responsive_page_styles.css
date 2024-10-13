@@ -1,0 +1,442 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/* Typography Variables */
+:root {
+  --primary-font: "Roboto", sans-serif;
+  --font-xl: 2rem; /* 30px */
+  --font-l: 1.25rem; /* 20px */
+  --font-m: 1rem; /* 16px */
+  --font-sm: 0.75rem; /* 12px */
+}
+
+/* Colors Variables */
+:root {
+  --white: #fff;
+  --black: #2b2828;
+  --gray: #e8dada;
+  --dark-gray: #908888;
+  --orange: #ff8c00;
+  --dark-orange: #db7b00;
+  --blue: #1c285c;
+  --dark-blue: #0e1945;
+}
+
+/* Layout Variables */
+:root {
+  --container-width: 1140px; /* - inner width is "1140px" */
+  --bg-color: #f7e2e2;
+  --card-bg: #fff;
+}
+
+/* Universal Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+/* Body styles */
+body {
+  font-family: var(--primary-font);
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Header Styles */
+header {
+  width: 100%;
+  text-align: center;
+  background-color: var(--orange);
+}
+
+nav {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: var(--font-l);
+  color: var(--white);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu > li {
+  width: 100%;
+  padding: 10px 0;
+  list-style-type: none;
+  border-left: 1px solid var(--white);
+  border-right: 1px solid var(--white);
+}
+
+.menu > li:first-child {
+  border-left: none;
+}
+
+.menu > li:last-child {
+  border-right: none;
+}
+
+.menu li > a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: var(--font-m);
+}
+
+/* Section Styles */
+section {
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Make sure second section's background is gray */
+section:nth-child(2) {
+  background-color: var(--gray);
+}
+
+section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card Section */
+.section-title {
+  font-size: var(--font-xl);
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+/* Section title styles */
+.section-title span {
+  color: var(--dark-gray);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: var(--dark-orange);
+  margin: 5px auto 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  margin-top: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+}
+
+.card-description {
+  position: absolute;
+  bottom: -100%;
+  width: 100%;
+  height: 25%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  transition: bottom 1s ease-in-out;
+}
+
+.card:hover .card-description {
+  bottom: 0;
+}
+
+.card:hover img {
+  transform: scale(1.5);
+  transition: all 2s;
+}
+
+/* Number Card Section */
+.number-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.number-card {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.number-card h3 {
+  font-size: var(--font-xl);
+  margin-bottom: 10px;
+}
+
+.number-card h5 {
+  font-size: var(--font-l);
+  margin-bottom: 10px;
+  color: var(--orange);
+}
+
+.number-card p {
+  font-size: var(--font-m);
+}
+
+.number-card,
+.number-card h3,
+.number-card h5,
+.number-card p {
+  transition: all 1s;
+}
+
+.number-card:hover {
+  background-color: var(--dark-orange);
+  transition: all 1s;
+}
+
+.number-card:hover h5 {
+  color: var(--white);
+  transition: all 2s;
+}
+
+.number-card:hover h3,
+.number-card:hover h5,
+.number-card:hover p {
+  transform: scale(1.03);
+  transition: all 1s;
+}
+
+/* Sale Card Section */
+.sale-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 50px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sale-card {
+  width: 100%;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: var(--card-bg);
+  color: var(--bg-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+/* Basic card styles */
+.sale-card .basic {
+  background-color: var(--orange);
+  clip-path: polygon(0px 0px, 100% 0px, 100% 40%, 50% 80%, 0px 40%);
+  padding: 10px;
+  height: 80px;
+  text-align: center;
+}
+
+.sale-card .basic h2 {
+  font-size: var(--font-l);
+}
+
+.price .currency {
+  font-size: var(--font-sm);
+  font-weight: bold;
+}
+
+.price .amount {
+  font-size: var(--font-l);
+  font-weight: bold;
+}
+
+.price .amount .cent {
+  font-size: var(--font-sm);
+  font-weight: bold;
+}
+
+.content {
+  margin-bottom: 20px;
+}
+
+.content,
+.features {
+  color: var(--black);
+}
+
+.features {
+  font-size: var(--font-sm);
+  list-style: none;
+}
+
+.features li {
+  display: flex;
+  margin: 25px 0;
+  text-align: left;
+  border-bottom: 2px solid var(--bg-color);
+  padding-bottom: 10px;
+}
+
+.features li::before {
+  content: "■";
+  color: #f39c12;
+  margin-right: 10px;
+}
+
+.purchase-btn {
+  width: 100%;
+  border: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  color: var(--bg-color);
+  background-color: var(--orange);
+  font-size: var(--font-m);
+  transition: all 0.3s;
+}
+
+/* Hover the buttons styles */
+.sale-card .detail-btn:hover,
+.purchase-btn:hover {
+  cursor: pointer;
+  background-color: var(--dark-orange);
+  transform: scale(1.03);
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Premium cards styles */
+.sale-card .premium {
+  clip-path: ellipse(54.5% 80.6% at 50% 0%);
+  height: 150px;
+  background-color: var(--orange);
+  text-align: center;
+  padding-top: 10%;
+  font-size: var(--font-xl);
+}
+
+.sale-card .description {
+  text-align: center;
+  font-size: var(--font-sm);
+  color: var(--black);
+  margin-bottom: 30px;
+}
+
+.sale-card .detail-btn {
+  display: block;
+  border: none;
+  width: 50%;
+  margin: 0 auto;
+  background-color: var(--orange);
+  border-radius: 50px;
+  color: var(--bg-color);
+  padding: 10px 0;
+  font-size: var(--font-m);
+  transition: all 0.5s;
+}
+
+/* Set the cards different colors */
+.sale-card:nth-of-type(2) .purchase-btn,
+.sale-card:nth-of-type(2) .basic,
+.sale-card:nth-of-type(5) .detail-btn,
+.sale-card:nth-of-type(5) .premium {
+  background-color: var(--blue);
+}
+
+.sale-card:nth-of-type(3) .purchase-btn,
+.sale-card:nth-of-type(3) .basic,
+.sale-card:nth-of-type(6) .detail-btn,
+.sale-card:nth-of-type(6) .premium {
+  background-color: var(--dark-blue);
+}
+
+/* Footer */
+footer {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  section .content {
+    max-width: 960px;
+  }
+
+  /* Card Section */
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Sale Card Section */
+  .sale-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  section .content {
+    max-width: 540px;
+  }
+
+  /* Header */
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    z-index: 10;
+  }
+
+  .menu-toggle {
+    display: block;
+    padding: 10px;
+  }
+
+  .menu.active {
+    display: block;
+  }
+
+  .menu > li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--white);
+    background-color: var(--orange);
+  }
+
+  /* Card Section */
+  .card-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Number Card Section */
+  .number-card-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Sale Card Section */
+  .sale-card-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
